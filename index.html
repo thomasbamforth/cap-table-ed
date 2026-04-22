@@ -225,6 +225,70 @@
     margin: 14px 0 16px;
   }
 
+  /* Stage tabs */
+  .stage-tabs {
+    display: flex;
+    gap: 4px;
+    background: var(--cream-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 6px;
+    margin-bottom: 18px;
+  }
+  .stage-tab {
+    flex: 1;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px 10px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--muted);
+    transition: background 0.15s ease, color 0.15s ease;
+    text-align: left;
+    min-width: 0;
+  }
+  .stage-tab:hover {
+    background: rgba(160, 82, 45, 0.06);
+    color: var(--ink-soft);
+  }
+  .stage-tab .st-num {
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--rust);
+    font-weight: 500;
+  }
+  .stage-tab .st-label {
+    font-size: 11.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+  .stage-tab.active {
+    background: var(--ink);
+    color: var(--cream);
+  }
+  .stage-tab.active .st-num {
+    color: var(--cream);
+    opacity: 0.6;
+  }
+  .stage-panel { display: none; }
+  .stage-panel.active { display: block; }
+  @media (max-width: 540px) {
+    .stage-tab { padding: 8px 6px; }
+    .stage-tab .st-label { font-size: 10px; letter-spacing: 0.04em; }
+    .stage-tab .st-num { font-size: 8.5px; letter-spacing: 0.15em; }
+  }
+
   /* Status badges */
   .status {
     display: inline-flex;
@@ -941,8 +1005,27 @@
   <!-- LEFT PANEL -->
   <aside class="controls">
 
+    <nav class="stage-tabs" role="tablist" aria-label="Funding stages">
+      <button class="stage-tab active" role="tab" data-stage="formation" aria-selected="true">
+        <span class="st-num">01</span>
+        <span class="st-label">Formation</span>
+      </button>
+      <button class="stage-tab" role="tab" data-stage="preseed" aria-selected="false">
+        <span class="st-num">02</span>
+        <span class="st-label">Pre-Seed</span>
+      </button>
+      <button class="stage-tab" role="tab" data-stage="seed" aria-selected="false">
+        <span class="st-num">03</span>
+        <span class="st-label">Seed</span>
+      </button>
+      <button class="stage-tab" role="tab" data-stage="seriesa" aria-selected="false">
+        <span class="st-num">04</span>
+        <span class="st-label">Series A</span>
+      </button>
+    </nav>
+
     <!-- FORMATION -->
-    <div class="card">
+    <div class="card stage-panel active" data-stage="formation" role="tabpanel">
       <div class="stage-sub">Stage 01</div>
       <h3>Formation</h3>
       <hr class="divide">
@@ -1031,7 +1114,7 @@
     </div>
 
     <!-- PRE-SEED SAFE -->
-    <div class="card">
+    <div class="card stage-panel" data-stage="preseed" role="tabpanel">
       <div class="stage-sub">Stage 02</div>
       <h3>Pre-Seed SAFE</h3>
       <hr class="divide">
@@ -1072,7 +1155,7 @@
     </div>
 
     <!-- SEED SAFE -->
-    <div class="card">
+    <div class="card stage-panel" data-stage="seed" role="tabpanel">
       <div class="stage-sub">Stage 03</div>
       <h3>Seed SAFE</h3>
       <hr class="divide">
@@ -1113,7 +1196,7 @@
     </div>
 
     <!-- SERIES A -->
-    <div class="card">
+    <div class="card stage-panel" data-stage="seriesa" role="tabpanel">
       <div class="stage-sub">Stage 04</div>
       <h3>Series A — Priced Round</h3>
       <hr class="divide">
@@ -2106,6 +2189,23 @@ function init() {
   document.getElementById('glossaryToggle').addEventListener('click', () => {
     document.getElementById('glossaryToggle').classList.toggle('open');
     document.getElementById('glossary').classList.toggle('open');
+  });
+
+  // Stage tabs
+  const tabs = document.querySelectorAll('.stage-tab');
+  const panels = document.querySelectorAll('.stage-panel');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const stage = tab.getAttribute('data-stage');
+      tabs.forEach(t => {
+        const isActive = t === tab;
+        t.classList.toggle('active', isActive);
+        t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+      panels.forEach(p => {
+        p.classList.toggle('active', p.getAttribute('data-stage') === stage);
+      });
+    });
   });
 
   renderAll();
