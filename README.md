@@ -1,6 +1,6 @@
-# Cap Table Ed
+# Cap Table Navigator
 
-Active working copy of the Kairos Cap Table Navigator — an interactive educational tool from Eshelman Innovation (UNC Eshelman School of Pharmacy) that teaches digital health founders and venture fellows how equity is distributed and diluted from company formation through Series A funding.
+An educational tool by Thomas Bamforth that teaches early-stage software founders how equity is distributed and diluted from company formation through Series A funding.
 
 Adjust the sliders to see how SAFEs, option pools, and priced rounds reshape founder ownership at each stage.
 
@@ -8,10 +8,6 @@ Adjust the sliders to see how SAFEs, option pools, and priced rounds reshape fou
 
 Open `index.html` in any modern browser — no build step required.
 
-## Backup
-
-The frozen reference snapshot lives at [github.com/thomasbamforth/kairos-cap-table](https://github.com/thomasbamforth/kairos-cap-table).
-
 ## License
 
-Educational use. Benchmarks are illustrative and for learning purposes only.
+Educational use. Benchmarks are illustrative ranges drawn from public industry data (Carta, PitchBook, Crunchbase, Y Combinator, NVCA, Fenwick & West) and are for learning purposes only.
