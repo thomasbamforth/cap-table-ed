@@ -17,13 +17,13 @@
     --ink: #1A1A1A;
     --ink-soft: #4A4A48;
     --muted: #8B8680;
-    --rust: #2C5F6F;
-    --founder: #1A1A1A;
-    --pool: #2C5F6F;
-    --advisor: #B37B3B;
-    --accel: #5A6870;
-    --preseed: #8B6B4A;
-    --seed: #3D5A6C;
+    --rust: #A0522D;
+    --founder: #2D6A4F;
+    --pool: #4A2C6E;
+    --advisor: #B5622A;
+    --accel: #2C4A6E;
+    --preseed: #8B6914;
+    --seed: #1A3A5C;
     --seriesa: #7A1A2E;
     --green: #2D6A4F;
     --amber: #C48B2A;
@@ -950,16 +950,16 @@
       <!-- Summary strip -->
       <div class="formation-summary">
         <div class="formation-bar">
-          <div class="fs-seg" id="fsFounders" style="background:#1A1A1A;"></div>
-          <div class="fs-seg" id="fsPool" style="background:#2C5F6F;"></div>
-          <div class="fs-seg" id="fsAdvisor" style="background:#B37B3B;"></div>
-          <div class="fs-seg" id="fsAccel" style="background:#5A6870;"></div>
+          <div class="fs-seg" id="fsFounders" style="background:#2D6A4F;"></div>
+          <div class="fs-seg" id="fsPool" style="background:#4A2C6E;"></div>
+          <div class="fs-seg" id="fsAdvisor" style="background:#B5622A;"></div>
+          <div class="fs-seg" id="fsAccel" style="background:#2C4A6E;"></div>
         </div>
         <div class="formation-summary-rows">
-          <div><span class="dot-square" style="background:#1A1A1A;"></span>Founders <strong id="sumFounders">85%</strong></div>
-          <div><span class="dot-square" style="background:#2C5F6F;"></span>Option pool <strong id="sumPool">15%</strong></div>
-          <div><span class="dot-square" style="background:#B37B3B;"></span>Advisors <strong id="sumAdvisor">—</strong></div>
-          <div><span class="dot-square" style="background:#5A6870;"></span>Accelerator <strong id="sumAccel">—</strong></div>
+          <div><span class="dot-square" style="background:#2D6A4F;"></span>Founders <strong id="sumFounders">85%</strong></div>
+          <div><span class="dot-square" style="background:#4A2C6E;"></span>Option pool <strong id="sumPool">15%</strong></div>
+          <div><span class="dot-square" style="background:#B5622A;"></span>Advisors <strong id="sumAdvisor">—</strong></div>
+          <div><span class="dot-square" style="background:#2C4A6E;"></span>Accelerator <strong id="sumAccel">—</strong></div>
         </div>
       </div>
 
@@ -1285,13 +1285,13 @@ const SCENARIOS = {
 
 let state = JSON.parse(JSON.stringify(DEFAULT_STATE));
 
-const FOUNDER_COLORS = ['#1A1A1A', '#3A3A3A', '#5A5A5A', '#7A7A7A'];
+const FOUNDER_COLORS = ['#2D6A4F', '#1F4A38', '#4A8A6E', '#6BAE8D'];
 const COLORS = {
-  pool: '#2C5F6F',
-  advisor: '#B37B3B',
-  accel: '#5A6870',
-  preseed: '#8B6B4A',
-  seed: '#3D5A6C',
+  pool: '#4A2C6E',
+  advisor: '#B5622A',
+  accel: '#2C4A6E',
+  preseed: '#8B6914',
+  seed: '#1A3A5C',
   seriesa: '#7A1A2E'
 };
 
@@ -1547,7 +1547,7 @@ function renderStageCards(d) {
       status: 'Shares issued  →',
       metric: fmtPct(founderFormation, 1),
       sub: 'Founders at formation',
-      barColor: '#1A1A1A',
+      barColor: '#2D6A4F',
       barPct: Math.min(100, founderFormation)
     },
     {
@@ -1858,8 +1858,8 @@ function applyState(s) {
 const XS = {
   title: { font: { name: 'Calibri', sz: 16, bold: true, color: { rgb: '1A1A1A' } }, alignment: { vertical: 'center' } },
   subtitle: { font: { name: 'Calibri', sz: 10, italic: true, color: { rgb: '8B8680' } } },
-  eyebrow: { font: { name: 'Calibri', sz: 9, bold: true, color: { rgb: '2C5F6F' } }, alignment: { vertical: 'center' } },
-  sectionHeader: { font: { name: 'Calibri', sz: 11, bold: true, color: { rgb: '2C5F6F' } }, fill: { fgColor: { rgb: 'F5F2EC' } }, alignment: { vertical: 'center' }, border: { bottom: { style: 'medium', color: { rgb: '1A1A1A' } } } },
+  eyebrow: { font: { name: 'Calibri', sz: 9, bold: true, color: { rgb: 'A0522D' } }, alignment: { vertical: 'center' } },
+  sectionHeader: { font: { name: 'Calibri', sz: 11, bold: true, color: { rgb: 'A0522D' } }, fill: { fgColor: { rgb: 'F5F2EC' } }, alignment: { vertical: 'center' }, border: { bottom: { style: 'medium', color: { rgb: '1A1A1A' } } } },
   columnHeader: { font: { name: 'Calibri', sz: 10, bold: true, color: { rgb: '1A1A1A' } }, fill: { fgColor: { rgb: 'E8E4DC' } }, alignment: { vertical: 'center' }, border: { bottom: { style: 'thin', color: { rgb: '1A1A1A' } } } },
   cell: { font: { name: 'Calibri', sz: 10, color: { rgb: '1A1A1A' } }, alignment: { vertical: 'center', wrapText: true } },
   cellNum: { font: { name: 'Calibri', sz: 10, color: { rgb: '1A1A1A' } }, alignment: { horizontal: 'right', vertical: 'center' }, numFmt: '#,##0' },
